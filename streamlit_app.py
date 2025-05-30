@@ -6,8 +6,8 @@ import seaborn as sns
 import streamlit as st
 import numpy as np
 
-# from ydata_profiling import ProfileReport 
-# from streamlit_pandas_profiling import st_profile_report
+from ydata_profiling import ProfileReport 
+from streamlit_pandas_profiling import st_profile_report
 
 st.set_page_config(
     page_title="California Housing Dashboard",
@@ -81,9 +81,9 @@ elif page == "Visualization":
 
 elif page == "Automated Report":
     st.subheader("Automated Report")
-    # if st.button("Generate Report"):
-    #     with st.spinner("Generating report..."):
-    #         profile = ProfileReport(df, title="California Housing Report", explorative=True, minimal=True)
+    if st.button("Generate Report"):
+        with st.spinner("Generating report..."):
+            profile = ProfileReport(df, title="California Housing Report", explorative=True, minimal=True)
     
-    # export = profile.to_html()
-    # st.download_button(label="Download full report", data=export, file_name="california_housing_report.html")
+    export = profile.to_html()
+    st.download_button(label="Download full report", data=export, file_name="california_housing_report.html")
